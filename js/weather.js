@@ -7,7 +7,7 @@ function weather(position) {
     const lat = Math.floor(position.coords.latitude);
     const lng = Math.floor(position.coords.longitude);
     console.log(lat, lng);
-    const url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getUltraSrtNcst?serviceKey=${API_KEY}&numOfRows=10&pageNo=1&dataType=JSON&base_date=${TODAY_KEY}&base_time=1700&nx=${lat}&ny=${lng}`
+    const url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=10&pageNo=1&dataType=JSON&base_date=${TODAY_KEY}&base_time=1700&nx=${lat}&ny=${lng}`
 
     console.log(url);
     fetch(url)
@@ -19,6 +19,8 @@ function weather(position) {
                 if (items) {
                     const temperature = items.find(item => item.category === "TMP").fcstValue;
                     console.log("Temperature:", temperature);
+                    const weather = document.querySelector("#weather-info");
+                    weather.innerText = `온도: ${temperature}`;
 
                     // 여기에서 다른 날씨 정보를 처리할 수 있습니다.
                 } else {
