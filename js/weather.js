@@ -21,6 +21,17 @@ function weather(position) {
                     console.log("Temperature:", temperature);
                     const weather = document.querySelector("#weather-info");
                     weather.innerText = `온도: ${temperature}`;
+                    if(temperature >= 0) {
+                        weather.classList.add("plus-degree");
+                        const tmpEmoji = document.createElement("span");
+                        weather.appendChild(tmpEmoji);
+                        tmpEmoji.innerText = "😌";
+                    } else if (temperature < 0) {
+                        weather.classList.add("minus-degree");
+                        const tmpEmoji = document.createElement("span");
+                        weather.appendChild(tmpEmoji);
+                        tmpEmoji.innerText = "🥶";
+                    }
 
                     // 여기에서 다른 날씨 정보를 처리할 수 있습니다.
                 } else {
