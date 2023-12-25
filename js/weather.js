@@ -1,6 +1,6 @@
 const API_KEY = 'h%2BP%2FXV%2FH65yFRs1Bb%2BWkv1sZw1%2BwnZWTB9k7NG1PzqnBPV%2B9OZonjBd8DhA7OJGXCFJ%2BdArTI1tgf8GBAUp8UA%3D%3D'
 const date = new Date();
-const TODAY_KEY = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate() - 1}`;
+const TODAY_KEY = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
 
 function weather(position) {
     const lat = Math.floor(position.coords.latitude);
@@ -14,22 +14,12 @@ function weather(position) {
                 const items = data && data.response && data.response.body && data.response.body.items && data.response.body.items.item;
                 if (items) {
                     const temperature = items.find(item => item.category === "TMP").fcstValue;
-                    console.log("Temperature:", temperature);
+                    const skyStatus = items.find(item => item.category === "SKY").fcstValue;
                     const weather = document.querySelector("#weather-info");
-                    weather.innerText = `온도: ${temperature}`;
-                    if(temperature >= 0) {
-                        weather.classList.add("plus-degree");
-                        const tmpEmoji = document.createElement("span");
-                        weather.appendChild(tmpEmoji);
-                        tmpEmoji.innerText = "😌";
-                    } else if (temperature < 0) {
-                        weather.classList.add("minus-degree");
-                        const tmpEmoji = document.createElement("span");
-                        weather.appendChild(tmpEmoji);
-                        tmpEmoji.innerText = "🥶";
-                    }
-
-                    // 여기에서 다른 날씨 정보를 처리할 수 있습니다.
+                    weather.innerHTML = `
+                        <p>온도: ${temperature}°C</p>
+                        <p>하늘상태: ${skyStatus}</p>
+                    `;
                 } else {
                     console.error("No weather information available");
                 }
