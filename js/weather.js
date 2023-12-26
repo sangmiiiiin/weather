@@ -28,7 +28,7 @@ console.log(BASE_TIME_KEY);
 function weather(position) {
     const lat = Math.floor(position.coords.latitude);
     const lng = Math.floor(position.coords.longitude);
-    const url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=10&pageNo=1&dataType=JSON&base_date=${TODAY_KEY}&base_time=${BASE_TIME_KEY}&nx=${lat}&ny=${lng}`
+    const url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=12&pageNo=1&dataType=JSON&base_date=${TODAY_KEY}&base_time=${BASE_TIME_KEY}&nx=${lat}&ny=${lng}`
 
     fetch(url)
         .then(response => response.json())
@@ -40,12 +40,14 @@ function weather(position) {
         const temperature = data.response.body.items.item.find(item => item.category === "TMP").fcstValue;
         const skyStatus = data.response.body.items.item.find(item => item.category === "SKY").fcstValue;
         const rainDrop = data.response.body.items.item.find(item => item.category === "POP").fcstValue;
+        const REH = data.response.body.items.item.find(item => item.category === "REH").fcstValue;
 
 
         weatherInfo.innerHTML = `
             <p>온도: ${temperature}°C</p>
             <p>하늘상태: ${getSkyStatus(skyStatus)}</p>
             <p>강수확률: ${rainDrop}%</p>
+            <p>습도: ${REH}%</p>
         `
     }
 
