@@ -47,17 +47,27 @@ function weather(position) {
         const viewTime = BASE_TIME_KEY;
 
         weatherInfo.innerHTML = `
-            <p>온도: ${temperature}°C</p>
-            <p>하늘상태: ${getSkyStatus(skyStatus)}</p>
-            <p>강수확률: ${rainDrop}%</p>
-            <p>습도: ${REH}%</p>
-            <p>강수형태: ${getPTY(PTY)}</p>
+            <p id = TMP>온도: ${temperature}°C</p>
+            <p id = SKY>하늘상태: ${getSkyStatus(skyStatus)}</p>
+            <p id = POP>강수확률: ${rainDrop}%</p>
+            <p id = REH>습도: ${REH}%</p>
+            <p id = PTY>강수형태: ${getPTY(PTY)}</p>
         `
         weatherDate.innerHTML = `
             <span>관측날짜: ${viewDate} 관측시간: ${viewTime}</span>
         `
-        
-    }
+        if (skyStatus === "1") {
+            document.body.classList.add("sunny");
+        // } else if (skyStatus === "2") {
+        //     skyElement.classList.add("little-cloud");
+        // } else if (skyStatus === "3") {
+        //     skyElement.classList.add("more-cloud");
+        // } else if (skyStatus === "4") {
+        //     skyElement.classList.add("cloudy");
+        // } else {
+        //     skyElement.classList.add("weather-default");
+        // }
+    }}
 
     const getSkyStatus = (code) => {
         switch(code) {
