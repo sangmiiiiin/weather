@@ -73,6 +73,35 @@ function weather(position) {
         }
     }
 }
+
+function weatherError() {
+    alert("현재 사용자의 위치 정보를 가져오지 못했습니다.");
+}
+
+
+
+navigator.geolocation.getCurrentPosition(weather, weatherError);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         // items가 없거나 비어있으면 에러 방지를 위해 처리
     //     const items = data && data.response && data.response.body && data.response.body.items && data.response.body.items.item;
     //     if (items) {
@@ -90,76 +119,3 @@ function weather(position) {
     // .catch(error => {
     //     console.error("Error fetching weather data:", error);
     // }));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// function displayWeather(data) {
-//     const weatherInfo = document.querySelector("#weather-info");
-
-//     // 데이터에서 필요한 부분을 추출
-//     const temperature = data.items.item.find(item => item.category === "TMP").fcstValue;
-//     const windSpeed = data.items.item.find(item => item.category === "WSD").fcstValue;
-//     const skyStatus = data.items.item.find(item => item.category === "SKY").fcstValue;
-//     const precipitationType = data.items.item.find(item => item.category === "PTY").fcstValue;
-//     const precipitationProbability = data.items.item.find(item => item.category === "POP").fcstValue;
-//     const humidity = data.items.item.find(item => item.category === "REH").fcstValue;
-
-//     // 화면에 표시
-//     weatherInfo.innerHTML = `
-//       <p>온도: ${temperature}°C</p>
-//       <p>풍속: ${windSpeed} m/s</p>
-//       <p>하늘 상태: ${getSkyStatus(skyStatus)}</p>
-//       <p>강수 형태: ${getPrecipitationType(precipitationType)}</p>
-//       <p>강수 확률: ${precipitationProbability}%</p>
-//       <p>습도: ${humidity}%</p>
-//     `;
-//   }
-
-//   // 하늘 상태 코드를 해석하는 함수
-//   function getSkyStatus(code) {
-//     switch (code) {
-//       case "1": return "맑음";
-//       case "2": return "구름 조금";
-//       case "3": return "구름 많음";
-//       case "4": return "흐림";
-//       default: return "알 수 없음";
-//     }
-//   }
-
-//   // 강수 형태 코드를 해석하는 함수
-//   function getPrecipitationType(code) {
-//     switch (code) {
-//       case "0": return "없음";
-//       case "1": return "비";
-//       case "2": return "비/눈";
-//       case "3": return "눈";
-//       case "4": return "소나기";
-//       default: return "알 수 없음";
-//     }
-//   }
-
-//   // ...
-
-//   fetch(url)
-//     .then(response => response.json())
-//     .then(data => displayWeather(data));
-
-
-function weatherError() {
-    alert("현재 사용자의 위치 정보를 가져오지 못했습니다.");
-}
-
-
-
-navigator.geolocation.getCurrentPosition(weather, weatherError);
