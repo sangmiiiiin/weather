@@ -1,7 +1,6 @@
 const API_KEY = 'h%2BP%2FXV%2FH65yFRs1Bb%2BWkv1sZw1%2BwnZWTB9k7NG1PzqnBPV%2B9OZonjBd8DhA7OJGXCFJ%2BdArTI1tgf8GBAUp8UA%3D%3D';
 const date = new Date();
-const TODAY_KEY = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
-console.log(date.getHours());
+let TODAY_KEY = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`;
 let BASE_TIME_KEY;
 
 if (date.getHours() >= 2 && date.getHours() < 5) {
@@ -21,9 +20,9 @@ if (date.getHours() >= 2 && date.getHours() < 5) {
 } else if (date.getHours() >= 23) {
     BASE_TIME_KEY = "2300"
 } else {
+    TODAY_KEY = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate() - 1}`;
     BASE_TIME_KEY = "2300"
 }
-console.log(BASE_TIME_KEY);
 
 function weather(position) {
     const lat = Math.floor(position.coords.latitude);
