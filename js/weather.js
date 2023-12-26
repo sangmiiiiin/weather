@@ -35,6 +35,7 @@ function weather(position) {
 
     const displayWeather = (data) => {
         const weatherInfo = document.querySelector("#weather-info");
+        const weatherDate = document.querySelector("#weather-date");
 
         const temperature = data.response.body.items.item.find(item => item.category === "TMP").fcstValue;
         const skyStatus = data.response.body.items.item.find(item => item.category === "SKY").fcstValue;
@@ -42,6 +43,8 @@ function weather(position) {
         const REH = data.response.body.items.item.find(item => item.category === "REH").fcstValue;
         const PTY = data.response.body.items.item.find(item => item.category === "PTY").fcstValue;
 
+        const viewDate = TODAY_KEY;
+        const viewTime = BASE_TIME_KEY;
 
         weatherInfo.innerHTML = `
             <p>온도: ${temperature}°C</p>
@@ -50,6 +53,10 @@ function weather(position) {
             <p>습도: ${REH}%</p>
             <p>강수형태: ${getPTY(PTY)}</p>
         `
+        weatherDate.innerHTML = `
+            <span>관측날짜: ${viewDate} 관측시간: ${viewTime}</span>
+        `
+        
     }
 
     const getSkyStatus = (code) => {
