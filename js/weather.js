@@ -56,17 +56,19 @@ function weather(position) {
         weatherDate.innerHTML = `
             <span>관측날짜: ${viewDate} 관측시간: ${viewTime}</span>
         `
+
+        // 이제 날씨에 따라서 이미지 넣어야함
         if (skyStatus === "1") {
             document.body.classList.add("sunny");
-        // } else if (skyStatus === "2") {
-        //     skyElement.classList.add("little-cloud");
-        // } else if (skyStatus === "3") {
-        //     skyElement.classList.add("more-cloud");
-        // } else if (skyStatus === "4") {
-        //     skyElement.classList.add("cloudy");
-        // } else {
-        //     skyElement.classList.add("weather-default");
-        // }
+        } else if (skyStatus === "2") {
+            skyElement.classList.add("little-cloud");
+        } else if (skyStatus === "3") {
+            skyElement.classList.add("more-cloud");
+        } else if (skyStatus === "4") {
+            skyElement.classList.add("cloudy");
+        } else {
+            skyElement.classList.add("weather-default");
+        }
     }}
 
     const getSkyStatus = (code) => {
