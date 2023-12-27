@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
 </head>
+
 <body>
-    <h1 id="clock">00:00</h1>
-    <h1>날씨정보</h1>
-    <div id="weather-date"></div>
-    <div id="weather-info"></div>
+    <div id="wrapper">
+        <div id="title-container">
+            <h1 id="clock">00:00</h1>
+            <h1>날씨정보</h1>
+            <div id="weather-date"></div>
+        </div>
+        <div id="sidebar">
+            <div id="weather-info"></div>
+        </div>
+    </div>
     <script src="./js/clock.js"></script>
     <script src="./js/weather.js"></script>
 </body>
+
 </html>
