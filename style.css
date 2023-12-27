@@ -20,6 +20,12 @@ html {
     justify-content: space-between;
 }
 
+#clock {
+    text-align: center;
+    font-size: 3rem;
+    margin-top: 30vh;
+}
+
 #sidebar {
     background-color: black;
     opacity: 0.5;
@@ -55,7 +61,7 @@ html {
 
 #tmp-container {
     font-size: 5rem;
-    margin-top: 45vh;
+    margin-top: 15vh;
     margin-left: 5vw;
 }
 
