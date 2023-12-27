@@ -36,6 +36,7 @@ function weather(position) {
     const displayWeather = (data) => {
         const weatherInfo = document.querySelector("#weather-info");
         const weatherDate = document.querySelector("#weather-date");
+        const tmpInfo = document.querySelector("#tmp-container");
 
         const temperature = data.response.body.items.item.find(item => item.category === "TMP").fcstValue;
         const skyStatus = data.response.body.items.item.find(item => item.category === "SKY").fcstValue;
@@ -47,12 +48,18 @@ function weather(position) {
         const viewTime = BASE_TIME_KEY;
 
         weatherInfo.innerHTML = `
-            <p id = TMP>Temperature: ${temperature}°C</p>
-            <p id = SKY>Sky: ${getSkyStatus(skyStatus)}</p>
-            <p id = POP>Precipitation probability: ${rainDrop}%</p>
-            <p id = REH>humidity: ${REH}%</p>
-            <p id = PTY>Precipitation type: ${getPTY(PTY)}</p>
+            <div id = sky-container><span>SKY</span> <span id = SKY> ${getSkyStatus(skyStatus)}</span></div>
+            <div id = pop-container><span>POP</span> <span id = POP> ${rainDrop}%</span></div>
+            <div id = hum-container><span>HUM</span> <span id = REH> ${REH}%</span></div>
+            <div id = pty-container><span>PTY</span> <span id = PTY> ${getPTY(PTY)}</span></div>
         `
+        tmpInfo.innerHTML = `
+            <div id = tmp>
+                <div id = "TMP"> ${temperature}°C</div>
+                <img id="weather-icon">
+            </div>
+        `
+        const weatherIcon = document.querySelector("#weather-icon");
         // weatherDate.innerHTML = `
         //     <span>관측날짜: ${viewDate} 관측시간: ${viewTime}</span>
         // `
@@ -63,6 +70,7 @@ function weather(position) {
             skyElement.classList.add("little-cloud");
         } else if (skyStatus === "3") {
             document.body.classList.add("more-cloud");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/2930/2930014.png"
         } else if (skyStatus === "4") {
             skyElement.classList.add("cloudy");
         } else if (PTY === "1") {
