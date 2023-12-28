@@ -64,19 +64,32 @@ function weather(position) {
         //     <span>관측날짜: ${viewDate} 관측시간: ${viewTime}</span>
         // `
 
-        if (skyStatus === "1") {
+        if (skyStatus === "1" && PTY === "0") {
             document.body.classList.add("sunny");
-        } else if (skyStatus === "2") {
-            skyElement.classList.add("little-cloud");
-        } else if (skyStatus === "3") {
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/2698/2698194.png";
+        } else if (skyStatus === "2" && PTY === "0") {
+            document.body.classList.add("little-cloud");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/9361/9361644.png";
+        } else if (skyStatus === "3" && PTY === "0") {
             document.body.classList.add("more-cloud");
-            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/2930/2930014.png"
-        } else if (skyStatus === "4") {
-            skyElement.classList.add("cloudy");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/9969/9969843.png";
+        } else if (skyStatus === "4" && PTY === "0") {
+            document.body.classList.add("cloudy");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/3313/3313983.png";
         } else if (PTY === "1") {
             document.body.classList.add("rain");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/1146/1146858.png";
+        } else if (PTY === "2") {
+            document.body.classList.add("rain-snow");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/1779/1779887.png";
+        } else if (PTY === "3") {
+            document.body.classList.add("snow");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/642/642000.png";
+        } else if (PTY === "4") {
+            document.body.classList.add("rain-drop");
+            weatherIcon.src = "https://cdn-icons-png.flaticon.com/128/3236/3236860.png";
         } else {
-            skyElement.classList.add("weather-default");
+            document.body.classList.add("weather-default");
         }
     }
 }
