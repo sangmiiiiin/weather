@@ -25,6 +25,7 @@ html {
     text-align: center;
     font-size: 3rem;
     margin-top: 30vh;
+    border: 0px solid red;
 }
 
 #sidebar {
@@ -32,11 +33,13 @@ html {
     opacity: 0.7;
     width: 38%;
     height: 100vh;
+    border: 0px solid red;
 }
 
 #weather-info {
     padding-top: 40%;
     font-size: 1.2rem;
+    border: 0px solid red;
 }
 
 .sunny {
@@ -88,6 +91,7 @@ html {
     font-size: 5rem;
     margin-top: 30vh;
     margin-left: 5vw;
+    border: 0px solid red;
 }
 
 #tmp {
@@ -101,4 +105,33 @@ html {
 
 #title-container {
     margin-left: 10vw;
+}
+
+@media screen and (max-width: 578px) {
+    #clock {
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 10vh;
+        margin-right: 10vw
+    }
+
+    #tmp-container {
+        margin-top: 5vh;
+        padding-left: 7%;
+    }
+
+    #wrapper {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #sidebar {
+        margin-top: 20vh;
+        width: 100%;
+    }
+
+    #weather-info {
+        padding-top: 0;
+    }
+    
 }
