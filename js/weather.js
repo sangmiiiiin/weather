@@ -27,7 +27,7 @@ if (date.getHours() >= 2 && date.getHours() < 5) {
 function weather(position) {
     const lat = Math.floor(position.coords.latitude);
     const lng = Math.floor(position.coords.longitude);
-    const url = `http://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=12&pageNo=1&dataType=JSON&base_date=${TODAY_KEY}&base_time=${BASE_TIME_KEY}&nx=${lat}&ny=${lng}`
+    const url = `https://apis.data.go.kr/1360000/VilageFcstInfoService_2.0/getVilageFcst?serviceKey=${API_KEY}&numOfRows=12&pageNo=1&dataType=JSON&base_date=${TODAY_KEY}&base_time=${BASE_TIME_KEY}&nx=${lat}&ny=${lng}`
 
     fetch(url)
         .then(response => response.json())
