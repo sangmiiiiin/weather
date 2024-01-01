@@ -4,6 +4,7 @@ const year = date.getFullYear();
 let month = date.getMonth();
 let day = date.getDate();
 let TODAY_KEY = `${year}${String(month + 1).padStart(2, 0)}${String(day).padStart(2, 0)}`;
+console.log(TODAY_KEY);
 let BASE_TIME_KEY;
 
 
@@ -24,7 +25,8 @@ if (date.getHours() >= 2 && date.getHours() < 5) {
 } else if (date.getHours() >= 23) {
     BASE_TIME_KEY = "2300"
 } else {
-    TODAY_KEY = `${date.getFullYear()}${date.getMonth() + 1}${date.getDate() - 1}`;
+    TODAY_KEY = `${year}${String(month + 1).padStart(2, 0)}${String(day - 1).padStart(2, 0)}`;
+    console.log(TODAY_KEY);
     BASE_TIME_KEY = "2300"
 }
 
