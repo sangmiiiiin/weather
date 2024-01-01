@@ -29,12 +29,6 @@ if (date.getHours() >= 2 && date.getHours() < 5) {
 }
 
 
-//-->
-
-function address() {
-    const url = `https://dapi.kakao.com/v2/local/search/address.${JSON}`
-
-}
 
 function weather(position) {
     const lat = position.coords.latitude;
