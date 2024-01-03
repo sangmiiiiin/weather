@@ -29,7 +29,7 @@ if (date.getHours() >= 2 && date.getHours() < 5) {
     console.log(TODAY_KEY);
     BASE_TIME_KEY = "2300"
 }
-
+console.log(BASE_TIME_KEY);
 
 
 function weather(position) {
